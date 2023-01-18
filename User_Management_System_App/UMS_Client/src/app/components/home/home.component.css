@@ -1,0 +1,20 @@
+.header{
+    padding-top: 10px;
+    text-align: center;
+    border: 3px solid blueviolet;
+    font-size: 40px;
+}
+.con{
+    text-align: center;
+}
+.tech{
+    text-align: center;
+}
+.footer{
+    background: #eee;
+    padding: 3px 15px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+  }

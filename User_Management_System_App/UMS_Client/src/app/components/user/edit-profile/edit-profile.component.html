@@ -1,0 +1,52 @@
+<mat-card class="card-container">
+    <mat-card-header>
+        <mat-card-title>Edit user information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="profileForm" class="form-container" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>User Name</mat-label>
+                <input matInput formControlName="username"   >
+                <mat-error *ngIf="f['username'].hasError('required')">Username is required.</mat-error>
+                <mat-error *ngIf="f['username'].hasError('notUnique')">Username exists.</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Full Name</mat-label>
+                <input matInput formControlName="fullname" >
+                <mat-error *ngIf="f['fullname'].hasError('required')">Full name is <strong>required</strong></mat-error>
+                
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Date of birth</mat-label>
+                    <input formControlName="birthdate" matInput [matDatepicker]="dp1">
+                    <mat-hint>YYYY-MM-DD</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="dp1"></mat-datepicker-toggle>
+                    <mat-datepicker #dp1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Mobile</mat-label>
+                <span matPrefix>+88 &nbsp;</span>
+                <input  matInput formControlName="mobile" >
+                <mat-hint>Mobile no should like 01xxxxxxxxx (11 digits)</mat-hint>
+                <mat-error *ngIf="f['mobile'].hasError('required')">Mobile no is required</mat-error>
+                <mat-error *ngIf="f['mobile'].hasError('pattern')">Mobile no is invalid</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" (ngModelChange)="emailchange($event)">
+                <mat-error *ngIf="f['email'].hasError('required')">Email is required.</mat-error>
+                <mat-error *ngIf="f['email'].hasError('email')">Email is invalid.</mat-error>
+                <mat-error *ngIf="f['email'].hasError('notUnique')">Email already used.</mat-error>
+            </mat-form-field>
+            
+            <div class="f-w">
+                <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid">Update</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+

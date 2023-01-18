@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+    [attr.role]="'navigation'"
+    [mode]="'over'" 
+    [opened]="false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list role="list">
+      <mat-divider></mat-divider>
+      <a [routerLink]="['/home']" mat-list-item><mat-icon matListItemIcon>home</mat-icon>
+        <div matListItemTitle>Home</div>
+      </a>
+      <mat-divider></mat-divider>
+      <a *ngIf="isLoggedIn" [routerLink]="['/profile', username]" mat-list-item><mat-icon matListItemIcon>account_circle</mat-icon>
+        <div matListItemTitle>Profile</div>
+      </a>
+      <mat-divider></mat-divider>
+      <a *ngIf="!isLoggedIn" [routerLink]="['/register']" mat-list-item><mat-icon matListItemIcon>app_registration</mat-icon>
+        <div matListItemTitle>Register</div>
+      </a>
+      <mat-divider></mat-divider>
+      <a *ngIf="!isLoggedIn" [routerLink]="['/login']" mat-list-item><mat-icon matListItemIcon>login</mat-icon>
+        <div matListItemTitle>Login</div> 
+      </a>
+      <mat-divider></mat-divider>
+      <a *ngIf="isLoggedIn" (click)="logout()" type="button" mat-list-item><mat-icon matListItemIcon>logout</mat-icon>
+        <div matListItemTitle>Logout</div>
+      </a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>User Management System App</span>
+    </mat-toolbar>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,35 @@
+<mat-card class="example-card" *ngIf="user">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{user.fullname}}</mat-card-title>
+      <mat-card-subtitle>{{user.username}}</mat-card-subtitle>
+    </mat-card-title-group>
+    <img (click)="fileinput.click()" class="avatar" mat-card-sm-image src="{{imagePath}}/{{user.picture}}" >
+  </mat-card-header>
+  <div class="line">
+    <div class="label">Mobile</div>
+    <div class="value">{{user.mobile}}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div class="line">
+      <div class="label">E-mail</div>
+      <div class="value">{{user.email}}</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="line">
+      <div class="label">Date of birth</div>
+      <div class="value">{{user.birthdate|date:'yyyy-MM-dd'}}</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="line">
+      <div class="label">Gender</div>
+      <div class="value">{{user.gender}}</div>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-button [routerLink]="['/edit-profile', user.userid]"><mat-icon>edit</mat-icon> Edit Profile</a>
+  </mat-card-actions>
+</mat-card>
+<input  (change)="onFileSelected($event)" name="pic" class="file-input" type="file" #fileinput />

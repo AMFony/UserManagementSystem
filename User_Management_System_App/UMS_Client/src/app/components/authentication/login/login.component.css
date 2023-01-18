@@ -1,0 +1,20 @@
+.card-container {
+    width: 70%;
+    margin: 15px auto;
+  }
+  .form-container{
+    margin: 15px 0;
+  }
+  .f-w {
+    width: 100%;
+  }
+  .flex{
+    display: flex;
+  }
+  @media screen and (max-width: 600px) {
+    .card-container {
+      width: 97%;
+      margin: 15px auto;
+    }
+  }
+  

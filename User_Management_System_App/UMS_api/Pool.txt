@@ -1,0 +1,6 @@
+user: 'postgres',
+host: 'localhost',
+database: 'userdb',
+password: 'Asib',
+port: 5432
+        

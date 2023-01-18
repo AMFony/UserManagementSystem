@@ -1,0 +1,18 @@
+.line {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+.label{
+    width: 150px;
+    font-weight: 500;
+}
+.value {
+    width: auto;
+}
+.avatar{
+    cursor: pointer;
+}
+.file-input {
+    display: none;
+}
